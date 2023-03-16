@@ -1,0 +1,77 @@
+@use "../utils/" as *;
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.container {
+  width: min(rem(1440), 90%);
+  margin-inline: auto;
+}
+
+// home
+
+.app {
+  min-height: 100vh;
+  background-image: url(../../../assets/home/background-home-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  // max-width: 1400px;
+  // margin-inline: auto;
+
+  @include breakpoint(medium) {
+    background-image: url(../../../assets/home/background-home-tablet.jpg);
+    background-size: cover;
+  }
+
+  @include breakpoint(large) {
+    background-image: url(../../../assets/home/background-home-desktop.jpg);
+  }
+}
+
+.body__text {
+  color: hsl(var(--Primary-300), 0.7);
+  font-family: var(--ff-300);
+  font-weight: 100;
+  width: min(90%, 50ch);
+  margin-inline: auto;
+  font-size: clamp(0.9375rem, 0.8291602465331279rem + 0.46224961479198773vw, 1.125rem);
+  line-height: rem(32);
+  word-spacing: rem(1);
+
+  @include breakpoint(large) {
+    margin-inline: 0;
+  }
+}
+
+// home end
+
+// destination
+
+.destination-app {
+  min-height: 100vh;
+  background-image: url(../../../assets/destination/background-destination-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  // max-width: 1400px;
+  // margin-inline: auto;
+
+  @include breakpoint(medium) {
+    background-image: url(../../../assets/destination/background-destination-tablet.jpg);
+  }
+
+  @include breakpoint(large) {
+    background-image: url(../../../assets/destination/background-destination-desktop.jpg);
+  }
+}
+
+// destination end

@@ -1,0 +1,194 @@
+@use "../utils/" as *;
+
+.header {
+  // outline: 1px solid red;
+  padding-block: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  // @include breakpoint(large) {
+  //   position: relative;
+  //   padding-top: 0;
+  //   margin-top: 1.5rem;
+  // }
+
+  &__button--navigation {
+    position: relative;
+    z-index: 11;
+    height: 2rem;
+    width: 2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    background-image: url(../../../assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: rem(27);
+
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  &__button--navigation[data-hamburger-menu="true"] {
+    background-image: url(../../../assets/shared/icon-close.svg);
+  }
+
+  &__navigaton {
+    position: fixed;
+    z-index: 10;
+    inset: 0 0 0 30%;
+    background-color: hsl(var(--Primary-300), 0.1);
+    backdrop-filter: blur(1rem);
+    padding-top: 5rem;
+    padding-left: 2rem;
+    opacity: 0;
+    transform: translateX(100%);
+
+    transition: transform 0.05s ease-in-out, opacity 0.1s ease-in-out;
+
+    @include breakpoint(medium) {
+      position: absolute;
+      display: flex;
+      // align-items: center;
+      // flex-grow: 1;
+      // outline: 1px solid red;
+
+      transform: translateX(0%);
+      opacity: 1;
+      padding-top: 0;
+      padding-left: 0;
+      padding-inline: 3rem;
+      height: rem(96);
+      width: rem(450);
+      right: 0;
+
+      inset: initial;
+    }
+
+    @include breakpoint(large) {
+      position: relative;
+      right: -6%;
+      width: rem(800);
+      height: rem(96);
+      backdrop-filter: blur(1.5rem);
+    }
+
+    .nav__list {
+      @include breakpoint(medium) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        @include breakpoint(large) {
+          justify-content: flex-start;
+          // gap: 5em;
+        }
+      }
+
+      .nav__item {
+        position: relative;
+        @include breakpoint(medium) {
+          // outline: 1px solid red;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+
+        @include breakpoint(large) {
+          margin-left: 3.5rem;
+        }
+
+        .nav__link {
+          // outline: 1px solid red;
+          position: relative;
+          margin-top: 1.5rem;
+          color: hsl(var(--Primary-300), 0.6);
+          display: block;
+          font-size: 1rem;
+          letter-spacing: rem(2.7);
+          text-transform: uppercase;
+
+          @include breakpoint(medium) {
+            margin-top: 0rem;
+            color: hsl(var(--Primary-300));
+            font-size: rem(14);
+          }
+
+          @include breakpoint(large) {
+            font-size: 1rem;
+            color: hsl(var(--Primary-300), 0.8);
+          }
+
+          & > span {
+            color: hsl(var(--Primary-300));
+            font-weight: bold;
+
+            @include breakpoint(medium) {
+              display: none;
+            }
+
+            @include breakpoint(large) {
+              display: inline-block;
+            }
+          }
+        }
+
+        .nav__link[data-active-link]::after {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: rem(4);
+          background-color: hsl(var(--Primary-300));
+          right: 0;
+
+          @include breakpoint(medium) {
+            display: none;
+          }
+        }
+      }
+
+      .nav__item[data-active-link]::after {
+        @include breakpoint(medium) {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: rem(3);
+          background-color: hsl(var(--Primary-300));
+          bottom: 0;
+        }
+      }
+
+      .nav__item[data-hover]::after {
+        @include breakpoint(medium) {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: rem(3);
+          background-color: hsl(var(--Primary-300), 0.5);
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__navigaton::before {
+    @include breakpoint(xlarge) {
+      content: "";
+      background-color: hsl(var(--Primary-300), 0.2);
+      height: 2px;
+      left: -15vw;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 34vw;
+    }
+  }
+
+  &__navigaton.active-nav {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}

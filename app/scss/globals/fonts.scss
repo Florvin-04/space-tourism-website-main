@@ -1,0 +1,59 @@
+@use "../utils/" as *;
+
+:root {
+  --ff-100: "Bellefair", serif;
+  --ff-200: "Barlow Condensed", sans-serif;
+  --ff-300: "Barlow", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ff-100);
+}
+
+h1 {
+  font-size: clamp(5rem, 2.47rem + 10.78vw, 9.375rem);
+  color: hsl(var(--Primary-300));
+}
+h2 {
+  font-size: clamp(3.125rem, 1.31rem + 7.7vw, 6.25rem);
+  color: hsl(var(--Primary-300));
+}
+h3 {
+  font-size: rem(56);
+}
+h4 {
+  font-size: rem(32);
+}
+
+h5 {
+  font-family: var(--ff-200);
+  font-size: clamp(1rem, 0.57rem + 1.85vw, 1.75rem);
+  letter-spacing: rem(2.7);
+
+  color: hsl(var(--Primary-300), 0.5);
+  font-weight: 200;
+
+  @include breakpoint(medium) {
+    letter-spacing: rem(4.75);
+  }
+}
+
+body {
+  font-family: var(--ff-200);
+}
+
+.subheading1 {
+  font-family: var(--ff-100);
+  font-size: rem(28);
+  color: hsl(var(--Primary-300));
+}
+
+.subheading2 {
+  font-family: var(--ff-200);
+  font-size: rem(14);
+  letter-spacing: rem(2.35);
+  color: hsl(var(--Primary-300), 0.7);
+}

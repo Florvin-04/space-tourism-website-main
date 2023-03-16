@@ -1,0 +1,175 @@
+@use "../utils/" as *;
+
+.hero {
+  margin-top: 1rem;
+  text-align: center;
+
+  @include breakpoint(medium) {
+    margin-top: 2rem;
+  }
+
+  @include breakpoint(large) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    // outline: 2px solid red;
+
+    height: 100vh;
+  }
+
+  > p {
+    text-transform: uppercase;
+    letter-spacing: rem(2.7);
+    font-size: clamp(1rem, 0.57rem + 1.85vw, 1.75rem);
+
+    @include breakpoint(medium) {
+      text-align: left;
+    }
+
+    @include breakpoint(large) {
+      grid-column: span 2;
+      align-self: center;
+    }
+
+    span {
+      color: hsl(var(--Primary-300), 0.5);
+      font-weight: bold;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__grid {
+    @include breakpoint(large) {
+      grid-column: span 2;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      text-align: left;
+    }
+  }
+
+  &__grid:not([data-active-destination]) {
+    display: none;
+  }
+  &__img--container {
+    margin-top: 1.5rem;
+    width: 50%;
+    margin-inline: auto;
+
+    @include breakpoint(large) {
+      width: 80%;
+
+      align-self: flex-start;
+    }
+  }
+
+  .tab__list {
+    margin-top: 1.5rem;
+    display: flex;
+    color: hsl(var(--Primary-300), 0.7);
+    justify-content: center;
+    gap: 2rem;
+
+    @include breakpoint(medium) {
+      gap: 3rem;
+    }
+    @include breakpoint(large) {
+      justify-content: flex-start;
+    }
+
+    &--item {
+      //   outline: 1px solid red;
+      height: 2.5rem;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: rem(14);
+      letter-spacing: rem(2.6);
+      cursor: pointer;
+      position: relative;
+
+      @include breakpoint(medium) {
+        font-size: rem(16);
+      }
+
+      &:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: rem(3);
+        background-color: hsl(var(--Primary-300), 0.7);
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    &--item[data-active-tab] {
+      color: hsl(var(--Primary-300));
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: rem(3);
+        background-color: hsl(var(--Primary-300));
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__context--title {
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__context--description {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    color: hsl(var(--Primary-300), 0.7);
+    font-size: rem(16);
+    line-height: rem(25);
+    font-family: var(--ff-300);
+    width: min(90%, 62ch);
+    margin-inline: auto;
+
+    @include breakpoint(large) {
+      margin-inline: revert;
+      font-size: rem(18);
+      width: 72%;
+      line-height: rem(35);
+    }
+  }
+
+  &__context--more-info {
+    border-top: rem(1) solid hsl(var(--Primary-300), 0.5);
+    text-transform: uppercase;
+    padding-top: 2em;
+
+    @include breakpoint(medium) {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 4em;
+      width: 80%;
+      margin-inline: auto;
+    }
+
+    @include breakpoint(large) {
+      margin-inline: revert;
+      width: 72%;
+      justify-content: flex-start;
+    }
+
+    > * > * + * {
+      margin-top: 0.5rem;
+    }
+
+    .travel-time {
+      margin-top: 2rem;
+
+      @include breakpoint(medium) {
+        margin-top: 0;
+      }
+    }
+  }
+}

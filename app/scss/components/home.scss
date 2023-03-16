@@ -1,0 +1,82 @@
+@use "../utils/" as *;
+
+main {
+  min-height: 100vh;
+  //   border: 1px solid red;
+}
+.home {
+  text-align: center;
+  display: grid;
+  isolation: isolate;
+  grid-template-rows: 1fr 1fr;
+  //   border: 2px solid red;
+  height: 100%;
+
+  @include breakpoint(large) {
+    text-align: left;
+    grid-template-rows: revert;
+    grid-template-columns: 1fr 1fr;
+    height: 65%;
+
+    padding-inline: 5rem;
+  }
+
+  &__content {
+    align-self: center;
+
+    @include breakpoint(large) {
+      align-self: end;
+    }
+  }
+
+  &__content > h1 {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__button {
+    background-color: hsl(var(--Primary-300));
+    color: hsl(var(--Primary-100));
+    font-family: var(--ff-100);
+    padding: 2rem;
+    width: min(45%, 15rem);
+
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    font-size: clamp(1.25rem, 0.817rem + 1.84vw, 2rem);
+    letter-spacing: rem(2);
+    justify-self: center;
+    margin-top: 2rem;
+
+    @include breakpoint(large) {
+      align-self: end;
+      justify-self: end;
+      width: 15rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      //   inset: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: hsl(var(--Primary-300), 0.1);
+      //   background-color: red;
+      border-radius: inherit;
+      width: 0%;
+      aspect-ratio: 1 / 1;
+
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 180%;
+    }
+  }
+}
