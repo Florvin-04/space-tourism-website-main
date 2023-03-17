@@ -22,10 +22,15 @@ h2 {
   color: hsl(var(--Primary-300));
 }
 h3 {
-  font-size: rem(56);
+  font-size: clamp(1.5rem, 0.34rem + 4.93vw, 3.5rem);
+  color: hsl(var(--Primary-300));
+  font-weight: normal;
 }
 h4 {
-  font-size: rem(32);
+  font-size: clamp(1rem, 0.42rem + 2.46vw, 2rem);
+  color: hsl(var(--Primary-300), 0.5);
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 h5 {

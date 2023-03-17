@@ -8,15 +8,16 @@ main {
   text-align: center;
   display: grid;
   isolation: isolate;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 2fr 1.5fr;
   //   border: 2px solid red;
-  height: 100%;
+  height: 100vh;
 
   @include breakpoint(large) {
+    // outline: 1px solid red;
     text-align: left;
     grid-template-rows: revert;
     grid-template-columns: 1fr 1fr;
-    height: 65%;
+    height: 70vh;
 
     padding-inline: 5rem;
   }
@@ -35,6 +36,8 @@ main {
   }
 
   &__button {
+    align-self: center;
+
     background-color: hsl(var(--Primary-300));
     color: hsl(var(--Primary-100));
     font-family: var(--ff-100);
@@ -53,6 +56,7 @@ main {
 
     @include breakpoint(large) {
       align-self: end;
+
       justify-self: end;
       width: 15rem;
     }

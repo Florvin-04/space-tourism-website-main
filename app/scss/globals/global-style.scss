@@ -75,3 +75,27 @@
 }
 
 // destination end
+
+// crew
+
+.crew-app {
+  min-height: 100vh;
+  background-image: url(../../../assets/crew/background-crew-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: top top;
+
+  // max-width: 1400px;
+  // margin-inline: auto;
+
+  @include breakpoint(medium) {
+    background-image: url(../../../assets/crew/background-crew-tablet.jpg);
+  }
+
+  @include breakpoint(large) {
+    background-image: url(../../../assets/crew/background-crew-desktop.jpg);
+  }
+}
+
+// crew end

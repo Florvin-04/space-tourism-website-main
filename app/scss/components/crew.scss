@@ -1,0 +1,86 @@
+@use "../utils/" as *;
+
+.crew {
+  margin-top: 2rem;
+  text-align: center;
+  display: grid;
+  //   outline: 1px solid red;
+
+  @include breakpoint(medium) {
+    margin-top: 4rem;
+    min-height: 100vh;
+  }
+
+  > p {
+    text-transform: uppercase;
+    letter-spacing: rem(2.7);
+    font-size: clamp(1rem, 0.57rem + 1.85vw, 1.75rem);
+
+    @include breakpoint(medium) {
+      text-align: left;
+    }
+
+    @include breakpoint(large) {
+      grid-column: span 2;
+      align-self: center;
+    }
+  }
+
+  span {
+    color: hsl(var(--Primary-300), 0.5);
+    font-weight: bold;
+    margin-right: 1.5rem;
+  }
+
+  &__img--container {
+    margin-top: 2rem;
+    border-bottom: 1px solid hsl(var(--Primary-300), 0.2);
+
+    @include breakpoint(medium) {
+      grid-row: 3;
+      align-items: end;
+    }
+
+    > div {
+      width: min(60%, 28rem);
+      //   width: 60%;
+      margin-inline: auto;
+    }
+  }
+
+  &__context {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+
+    @include breakpoint(medium) {
+      margin-top: 4rem;
+      flex-direction: column;
+    }
+
+    .crew--description {
+      margin-top: 1rem;
+
+      @include breakpoint(medium) {
+        width: 51ch;
+      }
+    }
+  }
+}
+
+.crew-tab__list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  &--item {
+    aspect-ratio: 1 / 1;
+    width: rem(10);
+    background-color: hsl(var(--Primary-300), 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  &--item[data-active-tab] {
+    background-color: hsl(var(--Primary-300));
+  }
+}
