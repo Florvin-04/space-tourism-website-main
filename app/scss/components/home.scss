@@ -12,6 +12,10 @@ main {
   //   border: 2px solid red;
   height: 100vh;
 
+  @include breakpoint(medium) {
+    margin-top: 3rem;
+  }
+
   @include breakpoint(large) {
     // outline: 1px solid red;
     text-align: left;

@@ -99,3 +99,27 @@
 }
 
 // crew end
+
+// technology
+
+.technology-app {
+  min-height: 100vh;
+  background-image: url(../../../assets/technology/background-technology-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: top top;
+
+  // max-width: 1400px;
+  // margin-inline: auto;
+
+  @include breakpoint(medium) {
+    background-image: url(../../../assets/technology/background-technology-tablet.jpg);
+  }
+
+  @include breakpoint(large) {
+    background-image: url(../../../assets/technology/background-technology-desktop.jpg);
+  }
+}
+
+// technology end

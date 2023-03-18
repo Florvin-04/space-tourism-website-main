@@ -12,10 +12,11 @@
     <!-- google fonts -->
 
     <link rel="stylesheet" href="./dist/style.css" />
-    <script src="./app/js/script.js" defer></script>
+    <script src="./app/js/header.js" defer></script>
+    <script src="./app/js/crew.js" defer></script>
     <title>Frontend Mentor | Space tourism website</title>
   </head>
-  <body>
+  <body crew-body>
     <div class="crew-app">
       <header class="header container">
         <div class="header__logo--container">
@@ -29,13 +30,13 @@
         <nav class="header__navigaton" data-header-navigation>
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="index.html" class="nav__link" data-active-link><span>00</span> home</a>
+              <a href="index.html" class="nav__link"><span>00</span> home</a>
             </li>
             <li class="nav__item">
               <a href="destination.html" class="nav__link"><span>01</span> destination</a>
             </li>
             <li class="nav__item" data-active-link>
-              <a href="crew.html" class="nav__link"><span>02</span> crew</a>
+              <a href="crew.html" class="nav__link" data-active-link><span>02</span> crew</a>
             </li>
             <li class="nav__item">
               <a href="technology.html" class="nav__link"><span>03</span> techonoly</a>
@@ -49,17 +50,12 @@
           <p class="subheading1"><span>02</span>Meet your crew</p>
 
           <div class="crew__img--container">
-            <div>
-              <img src="./assets/crew/image-douglas-hurley.webp" alt="" />
-            </div>
+            <!-- fetch data from json -->
           </div>
 
           <div class="crew__context">
-            <div data-active-crew-heading>
-              <h4 class="crew--role">commander</h4>
-              <h3 class="hero__context--title crew--title">douglas hurley</h3>
-              <p class="hero__context--description crew--description">Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.</p>
-            </div>
+            <!-- fetch data from json -->
+
             <ul class="tab__list crew-tab__list" role="tablist" data-destination-tab-list>
               <li class="crew-tab__list--item" aria-controls="Douglas Hurley" data-active-tab><span class="visually-hidden"> Douglas Hurley </span></li>
               <li class="crew-tab__list--item" aria-controls="Mark Shuttleworth"><span class="visually-hidden"> Mark Shuttleworth </span></li>

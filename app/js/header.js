@@ -1,8 +1,10 @@
 const hamburgerMenu = document.querySelector("[data-hamburger-menu]");
 const headerNav = document.querySelector("[data-header-navigation]");
 const navLink = document.querySelectorAll(".nav__link");
+const body = document.querySelector("body");
 
 hamburgerMenu.addEventListener("click", () => {
+  body.classList.toggle("active");
   headerNav.classList.toggle("active-nav");
 
   let bool = hamburgerMenu.dataset.hamburgerMenu;
